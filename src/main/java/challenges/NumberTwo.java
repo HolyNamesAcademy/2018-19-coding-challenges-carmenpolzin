@@ -29,6 +29,7 @@ public class NumberTwo {
         diffBC = Math.abs(b-c);
 
 
+
         if(diffAB == diffBC){
             return true;
         }
