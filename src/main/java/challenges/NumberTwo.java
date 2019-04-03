@@ -1,4 +1,5 @@
 package challenges;
+import java.util.ArrayList;
 
 public class NumberTwo {
 
@@ -22,7 +23,15 @@ public class NumberTwo {
      * @return true if the numbers are evenly spaced, otherwise false
      */
     public boolean evenlySpaced(int a, int b, int c){
-        // Delete the line below and implement the method!
-        throw new UnsupportedOperationException();
+        ArrayList<Integer> orderedNums = new ArrayList<Integer>;
+        int diffAB, diffBC;
+        diffAB = Math.abs(a-b);
+        diffBC = Math.abs(b-c);
+
+
+        if(diffAB == diffBC){
+            return true;
+        }
+        return false;
     }
 }

@@ -1,5 +1,7 @@
 package challenges;
 
+import java.util.ArrayList;
+
 public class NumberOne {
 
     /**
@@ -18,7 +20,26 @@ public class NumberOne {
      * @return an array with two values in it, the indices from the array numbers for the two numbers that sum to target
      */
     public int[] findTwoValuesThatSumToTarget(int[] numbers, int target) {
-        // Delete the line below and implement the method!
-        throw new UnsupportedOperationException();
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+        int[] finishedArray = new int[2];
+        for(int i = 0; i<numbers.length; i++) {
+            if(numbers[i]<target)
+            {
+                temp.add(numbers[i]);
+            }
+        }
+        for(int i = 0; i<temp.size()-1; i++){
+            int n = 1;
+            if(temp.get(i) + temp.get(i+n) == target) {
+                finishedArray[0] = temp.indexOf(temp.get(i));
+                finishedArray[1] = temp.indexOf(temp.get(i + n));
+            }
+            else
+                n++;
+
+        }
+
+        return finishedArray;
+
     }
 }
