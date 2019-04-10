@@ -1,4 +1,5 @@
 package challenges;
+import java.util.ArrayList;
 /**
  * Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
  *
@@ -26,13 +27,27 @@ public class NumberThree {
     public String timeConversion(String s) {
 
         if (s.contains("AM")) {
-            int result = Integer.parseInt(s);
-            String a = s.substring(0,8);
-            return a;
+            String[] newImproved = s.split(":");
+            if (newImproved[0].equals("12")) {
+                newImproved[0] = "00";
+                return newImproved[0] + ":" + s.substring(3, 8);
+            } else
+                return s.substring(0, 8);
         }
+
+
 
         if(s.contains("PM")){
-
+            String [] newImproved  = s.split(":");
+            int result = Integer.parseInt(newImproved[0]);
+            if(result == 12)
+                return s.substring(0,8);
+            int a = result+= 12;
+            String endResult = Integer.toString(a);
+            return endResult + ":" + s.substring(3,8);
         }
+
+        return "didn't work";
+
     }
 }
