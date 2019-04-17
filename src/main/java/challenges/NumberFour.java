@@ -1,5 +1,5 @@
 package challenges;
-import java.util.ArrayList;
+
 public class NumberFour {
 
     /**
@@ -18,16 +18,29 @@ public class NumberFour {
      *      */
 
      public int[] leftRotation(int[] input, int rotations) {
-         int [] output = input;
-         for (int i =0; i<rotations; i++) {
-             output[i] = input[((i-rotations)+input.length)%input.length];
-      }
+         int [] output = new int [input.length];
+
+         if(rotations-input.length<0) {
+             for (int i = 0; i < input.length; i++) {
+                 int tempIndex = ((i - rotations) + (input.length)) % input.length;
+                 output[tempIndex] = input[i];
+             }
+         }
+         else {
+             for (int i = 0; i < input.length; i++) {
+                 int tempIndex = ((i - rotations / 2) + (input.length)) % input.length;
+                 output[tempIndex] = input[i];
+             }
+         }
+
 
 
 return output;
 
-      }
+
 }
+}
+
 
 
 
